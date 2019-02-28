@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="element">
+        <div class="shortData" @click="showModal = true">
+            <h3>Task: {{current.task}}</h3>
+            <p>{{current.startTime[0]}}:{{current.startTime[1]}} - {{current.endTime[0]}}:{{current.endTime[1]}}</p>
+            <span class="details">Click for details</span>
+        </div>
+        <ModalWindowEdit v-if="showModal" @close="showModal = false" :current="current"></ModalWindowEdit>
+        <div class="=btns">
+            <div class="del" @click="showModalDel = true">
+
+            </div>
+        </div>
+        <ModalWindowDel v-if="showModalDel" @close="showModalDel = false" :current="current"></ModalWindowDel>
+    </div>
+</div>

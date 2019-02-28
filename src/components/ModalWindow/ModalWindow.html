@@ -1,0 +1,108 @@
+<transition name="modal">
+    <div class="modal-mask">
+        <div class="modal-wrapper">
+            <div class="modal-container">
+
+                <div class="modal-header">
+                    <slot name="header">
+                        <h3>Create new task</h3>
+                    </slot>
+                </div>
+
+                <div class="modal-body">
+                    <div class="selectTime">
+                        <span>Start at: </span>
+                        <select id="startHour" name="hours" ref="startHoursTime" @change="handleStartHour()" >
+                                <option></option>
+                            <option class="startHour" id="startHour0">8</option>
+                            <option class="startHour" id="startHour1">9</option>
+                            <option class="startHour" id="startHour2">10</option>
+                            <option class="startHour" id="startHour3">11</option>
+                            <option class="startHour" id="startHour4">12</option>
+                            <option class="startHour" id="startHour5">13</option>
+                            <option class="startHour" id="startHour6">14</option>
+                            <option class="startHour" id="startHour7">15</option>
+                            <option class="startHour" id="startHour8">16</option>
+                            <option class="startHour" id="startHour9">17</option>
+                            <option class="startHour" id="startHour10">18</option>
+                            <option class="startHour" id="startHour11" hidden>19</option>
+                        </select>
+                        <span> : </span>
+                        <select id="startMinutes" name="minutes" ref="startMinutesTime">
+                                <option></option>
+                                <option>00</option>
+                                <option>05</option>
+                                <option>10</option>
+                                <option>15</option>
+                                <option>20</option>
+                                <option>25</option>
+                                <option>30</option>
+                                <option>35</option>
+                                <option>40</option>
+                                <option>45</option>
+                                <option>50</option>
+                                <option>55</option>
+                        </select>
+
+                        <span>End at: </span>
+                        <select id="endHour" name="hours" ref="endHoursTime" @change="handleEndHour()">
+                            <option ></option>
+                            <option class="endHour" id="endHour0">8</option>
+                            <option class="endHour" id="endHour1">9</option>
+                            <option class="endHour" id="endHour2">10</option>
+                            <option class="endHour" id="endHour3">11</option>
+                            <option class="endHour" id="endHour4">12</option>
+                            <option class="endHour" id="endHour5">13</option>
+                            <option class="endHour" id="endHour6">14</option>
+                            <option class="endHour" id="endHour7">15</option>
+                            <option class="endHour" id="endHour8">16</option>
+                            <option class="endHour" id="endHour9">17</option>
+                            <option class="endHour" id="endHour10">18</option>
+                            <option class="endHour" id="endHour11">19</option>
+                        </select>
+                        <span> : </span>
+                        <select id="endMinutes" name="minutes" ref="endMinutesTime">
+                            <option></option>
+                            <option>00</option>
+                            <option>05</option>
+                            <option>10</option>
+                            <option>15</option>
+                            <option>20</option>
+                            <option>25</option>
+                            <option>30</option>
+                            <option>35</option>
+                            <option>40</option>
+                            <option>45</option>
+                            <option>50</option>
+                            <option>55</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-subtasks">
+
+                    <input type="text" ref="task" class="task" placeholder="Enter task">
+
+                    <div class="subbtn">
+                        <button @click="add()">Add subtask</button>
+                        <button @click="del()">Delete last</button>
+                    </div>
+
+                    <span id="response"></span>
+
+                </div>
+
+                <div class="modal-footer">
+                    <slot name="footer">
+                        <button class="modal-default-button" @click="create()">
+                            OK
+                        </button>
+                        <button class="modal-default-button" @click="$emit('close')">
+                            Cancel
+                        </button>
+                    </slot>
+                </div>
+            </div>
+        </div>
+    </div>
+</transition>

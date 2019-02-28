@@ -1,0 +1,17 @@
+<div class="cont">
+    <div class="all">
+        <div class="a">
+            <div class="newtask">
+                <button @click="showModal = true">New Task</button>
+                <ModalWindow v-if="showModal" @close="showModal = false" > </ModalWindow>
+            </div>
+        </div>
+        <div class="b">
+            <div class="item"
+                 v-for="task in tasks"
+                 :key="task._id">
+                <TaskItem :current="task"></TaskItem>
+            </div>
+        </div>
+    </div>
+</div>

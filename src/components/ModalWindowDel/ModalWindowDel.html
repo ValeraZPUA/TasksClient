@@ -1,0 +1,21 @@
+<transition name="modal">
+    <div class="modal-mask">
+        <div class="modal-wrapper">
+            <div class="modal-container">
+
+                <div class="modal-header">
+                    <slot name="header">
+                        <p>Are you sure?</p>
+                    </slot>
+                </div>
+
+                <div class="modal-footer">
+                    <slot name="footer">
+                        <button class="modal-default-button" @click="deleteTask()">OK</button>
+                        <button class="modal-default-button" @click="$emit('close')">Cancel</button>
+                    </slot>
+                </div>
+            </div>
+        </div>
+    </div>
+</transition>
